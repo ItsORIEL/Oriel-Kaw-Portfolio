@@ -5,9 +5,12 @@ import { CameraControls, Sparkles, Html, Float } from '@react-three/drei';
 import { useStore } from '../store';
 import { RESUME_DATA } from '../data';
 
-import TerminalIcon from '@mui/icons-material/Terminal';
-import GroupsIcon from '@mui/icons-material/Groups';
-import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
+// --- ICONS ---
+import TerminalIcon from '@mui/icons-material/Terminal';       
+import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff'; 
+import HubIcon from '@mui/icons-material/Hub';                 
+import CodeIcon from '@mui/icons-material/Code';               
+import SchoolIcon from '@mui/icons-material/School';           
 
 const PARTICLE_COUNT = 10000;
 const GALAXY_RADIUS = 30;
@@ -34,11 +37,14 @@ const getGalaxyColor = (normalizedRadius: number) => {
 };
 
 const Marker = ({ node, mode, setActiveSection }: { node: typeof RESUME_DATA[0], mode: string, setActiveSection: any }) => {
+  
   const Icon = useMemo(() => {
     switch(node.iconType) {
       case 'profile': return TerminalIcon;
-      case 'hr': return GroupsIcon;
       case 'travel': return FlightTakeoffIcon;
+      case 'network': return HubIcon;
+      case 'code': return CodeIcon;
+      case 'education': return SchoolIcon;
       default: return TerminalIcon;
     }
   }, [node.iconType]);
@@ -71,30 +77,31 @@ const Marker = ({ node, mode, setActiveSection }: { node: typeof RESUME_DATA[0],
               transform: `scale(${isVisible ? 1 : 0.5})`,
               transition: 'all 0.5s ease',
               cursor: 'pointer',
-              width: '600px',
+              width: '500px',
             }}
           >
             <div style={{
-              fontSize: '16px',
+              fontSize: '14px',
               fontWeight: 700,
-              letterSpacing: '4px',
+              letterSpacing: '3px',
               color: '#00ffff',
-              marginBottom: '10px',
+              marginBottom: '8px',
               textTransform: 'uppercase',
               textShadow: '0 2px 4px black'
             }}>
               {node.role}
             </div>
 
+            {/* --- UPDATED FONT SIZE HERE (48px -> 32px) --- */}
             <div style={{
-              fontSize: '60px',
+              fontSize: '32px', 
               fontWeight: 300,
               color: '#fff',
-              marginBottom: '20px',
+              marginBottom: '15px',
               textAlign: 'center',
               textTransform: 'uppercase',
-              lineHeight: 0.9,
-              textShadow: '0 0 25px rgba(0, 85, 255, 0.9)'
+              lineHeight: 1,
+              textShadow: '0 0 20px rgba(0, 85, 255, 0.8)'
             }}>
               {node.title}
             </div>
@@ -103,17 +110,17 @@ const Marker = ({ node, mode, setActiveSection }: { node: typeof RESUME_DATA[0],
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '90px',
-              height: '90px',
+              width: '70px',
+              height: '70px',
               borderRadius: '50%',
-              border: '3px solid rgba(0, 85, 255, 0.6)',
+              border: '2px solid rgba(0, 85, 255, 0.6)',
               background: 'rgba(0, 10, 30, 0.6)',
               transition: 'background 0.3s ease',
             }}
             onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(0, 85, 255, 0.4)'}
             onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(0, 10, 30, 0.6)'}
             >
-              <Icon style={{ color: '#fff', fontSize: '42px' }} />
+              <Icon style={{ color: '#fff', fontSize: '32px' }} />
             </div>
           </div>
         </Html>

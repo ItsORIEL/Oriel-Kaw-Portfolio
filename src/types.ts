@@ -5,7 +5,7 @@ export interface ProjectNode {
   tech: string[];
   description: string;
   position: [number, number, number];
-  iconType: 'profile' | 'hr' | 'travel';
+  iconType: 'profile' | 'travel' | 'network' | 'code' | 'education';
 }
 
 export type AppState = {

@@ -32,6 +32,7 @@ export const Interface: React.FC = () => {
         </Typography>
       </Box>
 
+      {/* --- INTRO SCREEN --- */}
       <Fade in={mode === 'intro'} timeout={1000}>
         <Box
           sx={{
@@ -73,6 +74,7 @@ export const Interface: React.FC = () => {
             Boundaries
           </Typography>
 
+          {/* Cleaned up description (removed bold/color span) */}
           <Typography 
             variant="body1" 
             sx={{ 
@@ -85,7 +87,7 @@ export const Interface: React.FC = () => {
             }}
           >
             Senior Frontend Developer & Software Engineer. 
-            I combine high-performance UI engineering with a strong foundation in Cybersecurity
+            I combine high-performance UI engineering with a strong foundation in Cybersecurity, 
             ensuring applications are visually stunning and secure by design.
           </Typography>
 
@@ -114,20 +116,33 @@ export const Interface: React.FC = () => {
         </Box>
       </Fade>
 
+      {/* --- DETAIL OVERLAY --- */}
       <Fade in={mode === 'detail'} timeout={1000}>
         <Box
           sx={{
             position: 'absolute',
             top: 0, left: 0, width: '100%', height: '100%',
-            background: 'radial-gradient(circle at center, rgba(0,20,40,0.4) 0%, rgba(0,0,0,0.95) 100%)',
+            background: 'rgba(0, 0, 0, 0.3)', 
             display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center',
-            padding: 4,
+            padding: 2,
             pointerEvents: mode === 'detail' ? 'auto' : 'none',
             zIndex: 30
           }}
         >
           {activeData && (
-            <Box sx={{ maxWidth: '800px' }}>
+            <Box 
+              sx={{ 
+                maxWidth: '800px',
+                width: '100%',
+                // Updated Opacity to 0.95
+                backgroundColor: 'rgba(5, 10, 20, 0.95)',
+                backdropFilter: 'blur(12px)',
+                borderRadius: '24px',
+                padding: { xs: 4, md: 8 },
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                boxShadow: '0 20px 50px rgba(0, 0, 0, 0.8)',
+              }}
+            >
               <Box sx={{ position: 'relative', zIndex: 100 }}>
                 <Button 
                   startIcon={<ArrowBackIosNewIcon />} 
@@ -138,6 +153,8 @@ export const Interface: React.FC = () => {
                     border: '1px solid rgba(255,255,255,0.1)',
                     px: 3,
                     borderRadius: 10,
+                    fontSize: '12px',
+                    letterSpacing: '1px',
                     '&:hover': { color: 'white', background: 'rgba(255,255,255,0.1)' } 
                   }}
                 >
@@ -145,18 +162,33 @@ export const Interface: React.FC = () => {
                 </Button>
               </Box>
 
-              <Typography variant="overline" sx={{ color: '#00ffff', letterSpacing: '4px', fontSize: '14px', fontWeight: 600, mb: 2, display: 'block' }}>
+              <Typography variant="overline" sx={{ color: '#00ffff', letterSpacing: '4px', fontSize: '12px', fontWeight: 600, mb: 2, display: 'block' }}>
                 {activeData.role}
               </Typography>
-              <Typography variant="h2" sx={{ color: 'white', fontWeight: 300, textTransform: 'uppercase', lineHeight: 1, mb: 4, textShadow: '0 0 30px rgba(0,255,255,0.3)' }}>
+              
+              <Typography variant="h2" sx={{ color: 'white', fontWeight: 300, textTransform: 'uppercase', lineHeight: 1, mb: 4, textShadow: '0 0 30px rgba(0,255,255,0.3)', fontSize: { xs: '2rem', md: '3.5rem' } }}>
                 {activeData.title}
               </Typography>
-              <Typography variant="h6" sx={{ color: '#ccc', fontWeight: 300, lineHeight: 1.6, maxWidth: '600px', mx: 'auto', mb: 6 }}>
+              
+              <Typography variant="h6" sx={{ color: '#d0d0d0', fontWeight: 300, lineHeight: 1.6, maxWidth: '650px', mx: 'auto', mb: 6, fontSize: { xs: '1rem', md: '1.2rem' } }}>
                 {activeData.description}
               </Typography>
+              
               <Stack direction="row" justifyContent="center" spacing={2} flexWrap="wrap" gap={2}>
                 {activeData.tech.map((t) => (
-                  <Chip key={t} label={t} sx={{ borderColor: 'rgba(255,255,255,0.3)', color: '#fff', background: 'rgba(255,255,255,0.05)', borderWidth: '1px', borderStyle: 'solid' }} />
+                  <Chip 
+                    key={t} 
+                    label={t} 
+                    sx={{ 
+                      borderColor: 'rgba(255,255,255,0.3)', 
+                      color: '#fff', 
+                      background: 'rgba(255,255,255,0.05)', 
+                      borderWidth: '1px', 
+                      borderStyle: 'solid',
+                      fontSize: '12px',
+                      letterSpacing: '1px'
+                    }} 
+                  />
                 ))}
               </Stack>
             </Box>
