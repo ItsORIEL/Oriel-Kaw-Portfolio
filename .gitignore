@@ -7,3 +7,4 @@ dist-ssr
 .vscode/
 package-lock.json
 yarn.lock
+.firebase
