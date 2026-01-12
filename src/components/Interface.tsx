@@ -38,20 +38,57 @@ export const Interface: React.FC = () => {
             position: 'absolute',
             top: '30%',
             left: { xs: '5%', md: '10%' },
-            maxWidth: '600px',
+            maxWidth: '650px',
             pointerEvents: mode === 'intro' ? 'auto' : 'none',
             zIndex: 20
           }}
         >
-          <Typography variant="overline" sx={{ color: '#00ffff', letterSpacing: '4px', fontSize: '12px', mb: 2, display: 'block' }}>
-            Senior Frontend Developer
+          <Typography 
+            variant="overline" 
+            sx={{ 
+              color: '#00ffff', 
+              letterSpacing: '3px', 
+              fontSize: '14px', 
+              mb: 2, 
+              display: 'block',
+              fontWeight: 600,
+              textShadow: '0 0 10px rgba(0, 255, 255, 0.5)'
+            }}
+          >
+            FRONTEND • SOFTWARE • SECURITY
           </Typography>
-          <Typography variant="h1" sx={{ color: 'white', fontWeight: 700, fontSize: { xs: '3rem', md: '5rem' }, lineHeight: 0.9, mb: 3, textTransform: 'uppercase' }}>
-            Fabric of<br />Our Future
+          
+          <Typography 
+            variant="h1" 
+            sx={{ 
+              color: 'white', 
+              fontWeight: 700, 
+              fontSize: { xs: '3.5rem', md: '5.5rem' },
+              lineHeight: 0.9,
+              mb: 3,
+              textTransform: 'uppercase'
+            }}
+          >
+            Code Without<br />
+            Boundaries
           </Typography>
-          <Typography variant="body1" sx={{ color: '#aaa', maxWidth: '400px', mb: 4, lineHeight: 1.6 }}>
-            Building the interconnected elements that become the fabric of our digital future.
+
+          <Typography 
+            variant="body1" 
+            sx={{ 
+              color: '#ccc', 
+              maxWidth: '500px', 
+              mb: 5, 
+              lineHeight: 1.7,
+              fontSize: '1.1rem',
+              fontWeight: 300
+            }}
+          >
+            Senior Frontend Developer & Software Engineer. 
+            I combine high-performance UI engineering with a strong foundation in Cybersecurity
+            ensuring applications are visually stunning and secure by design.
           </Typography>
+
           <Button 
             variant="outlined" 
             endIcon={<ArrowForwardIcon />}
@@ -60,11 +97,19 @@ export const Interface: React.FC = () => {
               borderColor: 'rgba(255,255,255,0.3)', 
               color: '#fff',
               borderRadius: '50px',
-              px: 4, py: 1.5,
-              '&:hover': { borderColor: '#00ffff', background: 'rgba(0, 255, 255, 0.1)' }
+              px: 5,
+              py: 1.5,
+              fontSize: '14px',
+              letterSpacing: '1px',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                borderColor: '#00ffff',
+                background: 'rgba(0, 255, 255, 0.1)',
+                boxShadow: '0 0 25px rgba(0, 255, 255, 0.4)'
+              }
             }}
           >
-            Explore the Galaxy
+            Explore Portfolio
           </Button>
         </Box>
       </Fade>

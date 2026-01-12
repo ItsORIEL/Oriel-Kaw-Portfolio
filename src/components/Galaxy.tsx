@@ -71,15 +71,15 @@ const Marker = ({ node, mode, setActiveSection }: { node: typeof RESUME_DATA[0],
               transform: `scale(${isVisible ? 1 : 0.5})`,
               transition: 'all 0.5s ease',
               cursor: 'pointer',
-              width: '400px',
+              width: '600px',
             }}
           >
             <div style={{
-              fontSize: '12px',
+              fontSize: '16px',
               fontWeight: 700,
-              letterSpacing: '3px',
+              letterSpacing: '4px',
               color: '#00ffff',
-              marginBottom: '8px',
+              marginBottom: '10px',
               textTransform: 'uppercase',
               textShadow: '0 2px 4px black'
             }}>
@@ -87,14 +87,14 @@ const Marker = ({ node, mode, setActiveSection }: { node: typeof RESUME_DATA[0],
             </div>
 
             <div style={{
-              fontSize: '36px',
+              fontSize: '60px',
               fontWeight: 300,
               color: '#fff',
-              marginBottom: '15px',
+              marginBottom: '20px',
               textAlign: 'center',
               textTransform: 'uppercase',
-              lineHeight: 1,
-              textShadow: '0 0 15px rgba(0, 85, 255, 0.8)'
+              lineHeight: 0.9,
+              textShadow: '0 0 25px rgba(0, 85, 255, 0.9)'
             }}>
               {node.title}
             </div>
@@ -103,17 +103,17 @@ const Marker = ({ node, mode, setActiveSection }: { node: typeof RESUME_DATA[0],
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '60px',
-              height: '60px',
+              width: '90px',
+              height: '90px',
               borderRadius: '50%',
-              border: '2px solid rgba(0, 85, 255, 0.6)',
+              border: '3px solid rgba(0, 85, 255, 0.6)',
               background: 'rgba(0, 10, 30, 0.6)',
               transition: 'background 0.3s ease',
             }}
             onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(0, 85, 255, 0.4)'}
             onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(0, 10, 30, 0.6)'}
             >
-              <Icon style={{ color: '#fff', fontSize: '28px' }} />
+              <Icon style={{ color: '#fff', fontSize: '42px' }} />
             </div>
           </div>
         </Html>
@@ -187,7 +187,7 @@ export const Galaxy: React.FC = () => {
       controlsRef.current.setLookAt(16, 6, 16, 0, 0, 0, true);
     } 
     else if (mode === 'overview') {
-      controlsRef.current.setLookAt(0, 20, 15, 0, 0, 0, true);
+      controlsRef.current.setLookAt(0, 18, 10, 0, 0, 0, true);
     } 
     else if (mode === 'detail' && activeSection !== null) {
       const target = RESUME_DATA[activeSection];
